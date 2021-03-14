@@ -1,0 +1,151 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e5e5e5;
+  /* border-radius: 10px; */
+  border-radius: 10px 10px 0 0;
+  /* padding: 10px; */
+  /* background-color: brown; */
+}
+
+.income-expense-switch {
+  height: 64px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e5e5e5;
+}
+
+.income {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #0081df;
+  border-radius: 10px 0px 0 0;
+  transition: background-color 0.5s ease-out;
+}
+
+.expense {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #0081df;
+  border-radius: 0px 10px 0 0;
+  transition: background-color 0.5s ease-out;
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.transaction-form label {
+  font-size: 0.8rem;
+  font-weight: lighter;
+  margin: 10px 0 0 0;
+  color: #767676;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.transaction-form input {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #949494;
+  border-radius: 4px;
+  outline: none;
+}
+
+.income.selected {
+  background-color: #0081df;
+  color: #fff;
+}
+
+.expense.selected {
+  background-color: var(--expense-color);
+  color: #fff;
+}
+
+.input-fields {
+  /* width: 100%; */
+  display: flex;
+  margin: 10vh auto;
+}
+
+.input-fields .description {
+  width: 100%;
+  /* margin-right: 15px; */
+  text-align: left;
+}
+
+.input-fields .amount {
+  width: 100%;
+  /* padding-left: auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10px;
+}
+
+.amount input {
+  width: 60%;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.amount-curreny {
+  display: flex;
+}
+
+.amount-curreny input#currency {
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.amount-curreny select {
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  padding: 0 0 0 10px;
+  font-size: 0.8rem;
+  color: #fff;
+  background: #0081df;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  outline: none;
+  /* transform: matrix(0, 1, 1, 0, 0, 0); */
+}
+
+form button {
+  width: 24vw;
+  height: 8vh;
+  padding: 10px;
+  color: #fff;
+  background: #0081df;
+  border: none;
+  border-radius: 10px;
+  margin: 10vh 0;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 15px;
+  text-align: center;
+}
