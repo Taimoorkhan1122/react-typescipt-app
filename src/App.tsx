@@ -1,20 +1,18 @@
 import React from "react";
 
-import LoginForm from "./LoginForm";
+import GlobalProvider from "./context/GlobalProvider";
+import Header from "./components/Header";
+import Container from "./components/Container";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>learn react</h1>
-      <LoginForm
-        shouldRemember={true}
-        onUsernameChange={(username: string) => {}}
-        onPasswordChange={(pasword: string) => {}}
-        onRememberChange={(remember: boolean) => {}}
-        onSubmit={(username: string, password: string) => {}}
-      />
-    </div>
+    <GlobalProvider>
+      <div className="main">
+        <Header />
+        <Container />
+      </div>
+    </GlobalProvider>
   );
 }
 
