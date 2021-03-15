@@ -1,6 +1,7 @@
 name: Typescript Expense Tracker
 
-on: [push]
+on: push:
+      branches: [master]
 
 jobs:
   build:
