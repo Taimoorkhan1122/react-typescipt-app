@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useContext, useState } from "react";
-import { GlobalContext, stateTypes } from "../../context/GlobalProvider";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalProvider";
 
 import { InputForm } from "./inputForm";
 import "./inputContainer.css";
