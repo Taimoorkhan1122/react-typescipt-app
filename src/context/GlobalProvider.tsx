@@ -19,7 +19,7 @@ export type transactionTypes = {
 };
 
 export type stateTypes = {
-  transactions: [transactionActions] | [];
+  transactions: [transactionTypes] | [];
   incomeExpense: boolean;
   expenseState: boolean;
 };
