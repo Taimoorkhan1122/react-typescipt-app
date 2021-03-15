@@ -1,6 +1,9 @@
-name: Typescript Quiz App
+name: Typescript expense tracker App
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
