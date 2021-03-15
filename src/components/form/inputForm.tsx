@@ -1,25 +1,27 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
-import { GlobalContext } from "../../context/GlobalProvider";
-// import { IncomExpense } from './IncomExpense';
+import { GlobalContext, transactionTypes } from "../../context/GlobalProvider";
 
 export const InputForm = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
 
-  // const { addTransactions, expenseState } = useContext(GlobalContext);
+  const {
+    state: { expenseState },
+    addTransaction,
+  } = useContext(GlobalContext);
 
-  const onSubmit = () => {
-    // e.preventDefault();
-    // const newTransaction = {
-    //   id: Math.floor(Math.random() * 100000),
-    //   text: text,
-    //   // amount: +amount
-    //   amount: expenseState[0] ? +amount : +amount * -1,
-    // };
-    // addTransactions(newTransaction);
-    // setText("");
-    // setAmount(0);
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newTransaction: transactionTypes = {
+      id: Math.floor(Math.random() * 100000),
+      text: text,
+      amount: expenseState ? amount : amount * -1,
+    };
+
+    addTransaction(newTransaction);
+    setText("");
+    setAmount(0);
   };
   return (
     <form className="transaction-form" onSubmit={onSubmit}>
@@ -38,13 +40,13 @@ export const InputForm = () => {
         <div className="amount">
           <label htmlFor="amount">Transaction amount</label>
           <div className="amount-curreny">
-            {/* <input
+            <input
               type="number"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={(e) => setAmount(+e.target.value)}
               placeholder="$ 1000"
               id="currency"
-            /> */}
+            />
             <select name="currency">
               <option value="USD">USD</option>
               <option value="PKR">PKR</option>

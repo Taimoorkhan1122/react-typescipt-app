@@ -31,12 +31,19 @@ export type transactionActions = ActionMap<payload>[keyof ActionMap<payload>];
 export const Reducer = (state: stateTypes, action: transactionActions) => {
   switch (action.type) {
     case ActionTypes.ADD:
+      console.log("adding transaction");
+
       return {
         ...state,
-        transactoins: [action.payload, ...state.transactions],
+        transactions: [action.payload, ...state.transactions],
       };
     case ActionTypes.DELETE:
-      return { ...state };
+      return {
+        ...state,
+        transactions: state.transactions.filter(
+          (transaction) => transaction.id !== action.payload.id
+        ),
+      };
 
     case ActionTypes.SET:
       return { ...state, expenseState: action.payload.val };
