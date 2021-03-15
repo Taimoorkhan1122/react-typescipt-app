@@ -3,6 +3,7 @@ import { stateTypes } from "./GlobalProvider";
 export enum ActionTypes {
   ADD = "ADD_TRANSACTION",
   DELETE = "DELETE_TRANSACTION",
+  SET = "SET_STATE",
 }
 
 type ActionMap<M extends { [index: string]: any }> = {
@@ -20,6 +21,9 @@ export type payload = {
   [ActionTypes.DELETE]: {
     id: number;
   };
+  [ActionTypes.SET]: {
+    val: boolean;
+  };
 };
 
 export type transactionActions = ActionMap<payload>[keyof ActionMap<payload>];
@@ -33,6 +37,10 @@ export const Reducer = (state: stateTypes, action: transactionActions) => {
       };
     case ActionTypes.DELETE:
       return { ...state };
+
+    case ActionTypes.SET:
+      return { ...state, expenseState: action.payload.val };
+
     default:
       return state;
   }

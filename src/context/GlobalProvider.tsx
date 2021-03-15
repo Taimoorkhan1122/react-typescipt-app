@@ -21,24 +21,25 @@ export type transactionTypes = {
 export type stateTypes = {
   transactions: [transactionActions] | [];
   incomeExpense: boolean;
-  expenseState?: [any, Dispatch<SetStateAction<any>>];
+  expenseState: boolean;
 };
+// type expenseState = [boolean, Dispatch<SetStateAction<boolean>> ];
 
 const initialState: stateTypes = {
   transactions: [],
   incomeExpense: true,
+  expenseState: true,
 };
 
 export const GlobalContext = createContext({
   state: initialState,
   addTransaction: (t: transactionTypes): void => {},
   deleteTransaction: (id: number): void => {},
+  setExpenseState: (val: boolean): void => {},
 });
 
 export const GlobalProvider: React.FC<Props> = ({ children }: Props) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
-  initialState.expenseState = useState(false);
-  console.log(dispatch);
 
   const addTransaction = (transaction: transactionTypes) => {
     dispatch({
@@ -52,11 +53,18 @@ export const GlobalProvider: React.FC<Props> = ({ children }: Props) => {
       payload: { id },
     });
   };
+
+  const setExpenseState = (val: boolean) => {
+    dispatch({
+      type: ActionTypes.SET,
+      payload: { val },
+    });
+  };
   console.log(state);
 
   return (
     <GlobalContext.Provider
-      value={{ state, addTransaction, deleteTransaction }}>
+      value={{ state, addTransaction, deleteTransaction, setExpenseState }}>
       {children}
     </GlobalContext.Provider>
   );
