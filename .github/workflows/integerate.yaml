@@ -16,7 +16,7 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
-      - name: Install Yarn
+      - name: Install yarn
         run: sudo apt update && sudo apt install yarn
       - name: Build React app
         run: sudo yarn build
