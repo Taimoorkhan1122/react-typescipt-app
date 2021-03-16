@@ -27,6 +27,8 @@ type Config = {
 
 export function register(config?: Config) {
   if ("serviceWorker" in navigator) {
+    console.log("running service worker");
+
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {

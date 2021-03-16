@@ -56,7 +56,6 @@ export const GlobalProvider: React.FC<Props> = ({ children }: Props) => {
       payload: { val },
     });
   };
-  console.log(state);
 
   return (
     <GlobalContext.Provider
