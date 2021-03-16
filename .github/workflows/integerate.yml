@@ -29,8 +29,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      #   run: sudo yarn build
-      # - name: Install surge
-      #   run: npm install -g surge
-      # - name: Run Surge
-      #   run: surge ./build expense-tracker-tsx.surge.sh --token ${{secrets.MY_SECRET}}
