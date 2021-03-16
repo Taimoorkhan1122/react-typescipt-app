@@ -18,7 +18,6 @@ export const IncomExpense = () => {
     .filter((item) => item < 0)
     .reduce((acc, item) => (acc += item), 0)
     .toFixed(2);
-  console.log("income expense ", expense);
 
   return (
     <div className="incomeExpense">
