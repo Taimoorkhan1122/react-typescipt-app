@@ -1,7 +1,7 @@
 name: Typescript expense tracker App
 
 on:
-  pull:
+  push:
     branches:
       - master
 
@@ -22,8 +22,14 @@ jobs:
       - name: Install Yarn
         run: sudo apt update && sudo apt install yarn
       - name: Build React app
-        run: sudo yarn build
-      - name: Install surge
-        run: npm install -g surge
-      - name: Run Surge
-        run: surge ./build expense-tracker-tsx.surge.sh --token ${{secrets.MY_SECRET}}
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      #   run: sudo yarn build
+      # - name: Install surge
+      #   run: npm install -g surge
+      # - name: Run Surge
+      #   run: surge ./build expense-tracker-tsx.surge.sh --token ${{secrets.MY_SECRET}}
